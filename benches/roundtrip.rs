@@ -20,10 +20,10 @@ fn roundtrip(c: &mut Criterion) {
 
     c.bench_function("Chameleon Compression", |b| {
         b.iter(|| {
-            density::density_compress(
+            dens::compress_slice(
                 black_box(text_bytes),
                 black_box(&mut compressed_output),
-                black_box(density::Algorithm::Chameleon),
+                black_box(dens::Algorithm::Chameleon),
             );
         })
     });
